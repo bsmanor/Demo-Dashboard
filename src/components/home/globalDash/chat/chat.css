@@ -1,0 +1,20 @@
+.bigFont {
+  position: relative;
+  bottom: 10px;
+  font-size: 6em;
+  font-family: 'Roboto', sans-serif;
+}
+
+@media only screen and (max-width: 750px) {
+  .bigFont {
+    font-size: 2em;
+    bottom: -30px
+  }
+}
+
+@media only screen and (max-height: 900px) {
+  .bigFont {
+    font-size: 1.7em;
+    bottom: -30px
+  }
+}

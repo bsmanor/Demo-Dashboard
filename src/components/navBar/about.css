@@ -1,0 +1,17 @@
+.aboutContainer {
+  height: 100vh;
+  padding: 5% 20%;
+  background-color: #FFFFFF;
+  text-align: justify;
+  text-justify: inter-word;
+}
+
+.myImage {
+}
+
+@media only screen and (max-width: 600px) {
+  .aboutContainer {
+    height: 100%;
+    padding: 0;
+  }
+}

@@ -1,0 +1,62 @@
+.mainAppContainer {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+}
+.flexRow {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-content: space-around;
+}
+.flexRowCenter {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: space-around;
+}
+.flexRowStart {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-content: space-around;
+}
+.flexColumn {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-content: center;
+}
+.autoWidth {
+  width: auto;
+}
+.autoHeight {
+  height: auto;
+}
+.chips {
+  margin: 30px;
+}
+.card {
+  margin: 20px;
+}
+.cardHeader {
+  background-color: #455A64;
+}
+.cardHeaderIcon {
+  margin-right: 20;
+}
+.hide {
+  visibility: hidden;
+}
+.link {
+  text-decoration: none;
+}
+.centerBlock {
+  margin-left:  auto;
+  margin-right: auto;
+}
+.centerText {
+  text-align: center;
+}

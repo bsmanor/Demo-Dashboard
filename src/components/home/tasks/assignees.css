@@ -1,0 +1,7 @@
+.chipContainer {
+  display: flex;
+  flex-direction: row;
+}
+.chip {
+  margin: 5px;
+}

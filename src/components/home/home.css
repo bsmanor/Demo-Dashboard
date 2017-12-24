@@ -1,0 +1,7 @@
+.userInfo {
+  height: 100vh;
+}
+.chatAndTeamContainer {
+  display: flex;
+  flex-direction: row;
+}
