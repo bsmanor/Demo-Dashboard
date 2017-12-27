@@ -110,6 +110,7 @@ export default class EditChat extends Component {
 
     const styles = {
       mainContainer: {
+        //backgroundColor: this.props.styles.accent2,
         margin: '0px 20%'
       },
       card: {

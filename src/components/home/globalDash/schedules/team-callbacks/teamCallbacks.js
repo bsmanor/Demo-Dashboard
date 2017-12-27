@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../../../../../App.css';
-
 import { Link } from 'react-router-dom';
 import AddCallback from '../../../../adminPanel/editUpcomingCallbacks/addCallback';
 // import Firebase
@@ -162,9 +161,10 @@ export default class TeamCallbacks extends Component {
         {this.props.mq ? <CardHeader className="cardHeader" title="UPCOMING CALLBACKS" titleStyle={this.props.styles.cardHeaderTitle} /> : null}
           <CardText>
             <List style={styles.callbacksList}>{callbacks}</List>
-            <FloatingActionButton style={styles.addButton} mini={true}>
-              <ContentAdd onClick={this.handleAddDialogOpen}/>
-            </FloatingActionButton>
+            <Link to={'/admin/callback'}><FloatingActionButton style={styles.addButton} mini={true}>
+              <ContentAdd />
+              {/* <ContentAdd onClick={this.handleAddDialogOpen}/> */}
+            </FloatingActionButton></Link>
           </CardText>
         </Card>
 
@@ -191,7 +191,6 @@ export default class TeamCallbacks extends Component {
             <RaisedButton primary={true} style={styles.buttonMargin} onClick={this.handleDeleteDialogClose} label="CANCEL" />,
             <RaisedButton onClick={this.deleteCallback} secondary={true} label="YES" />
           ]}
-          modal={true}
           open={this.state.deleteCallbackDialogState}
           onRequestClose={this.handleDeleteDialogOpen}
         >

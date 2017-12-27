@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import EditChat from '../../../../adminPanel/editChatSchedule/editChat';
+import { Link } from 'react-router-dom';
 // import Firebase
 import * as firebase from 'firebase';
 // Importing Moment.js
@@ -93,7 +94,7 @@ class ChatSchedule extends Component {
       },
       createButton: {
         zDepth: 3      
-      },
+      }
     }
 
     let table = [];
@@ -135,9 +136,10 @@ class ChatSchedule extends Component {
 
               </Table>
             </div>
-            <FloatingActionButton style={styles.createButton} mini={true}>
-              <ContentCreate onClick={this.handleEditDialogOpen} />
-            </FloatingActionButton>
+            <Link to={'/admin/chat'}><FloatingActionButton style={styles.createButton} mini={true}>
+              <ContentCreate />
+              {/* <ContentCreate onClick={this.handleEditDialogOpen} /> */}
+            </FloatingActionButton></Link>
             {/* <FloatingActionButton style={styles.createButton} mini={true}>
               <ContentAdd onClick={this.duplicator} />
             </FloatingActionButton> */}
@@ -146,11 +148,10 @@ class ChatSchedule extends Component {
 
         {/* Dialog for adding new message */}
         <Dialog
-        autoScrollBodyContent={true}
+          autoScrollBodyContent={true}
           actions={[
             <RaisedButton primary={true} style={styles.buttonMargin} onClick={this.handleEditDialogClose} label="CANCEL" />,
           ]}
-          modal={true}
           open={this.state.editChatDialogState}
           onRequestClose={this.handleEditDialogOpen}
         >

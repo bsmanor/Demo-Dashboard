@@ -96,6 +96,7 @@ export default class AddNewMessages extends Component {
           <CardText>
             <TextField
               type="text"
+              fullWidth={true}
               id="newMessageTitle"
               floatingLabelText="Title"
               multiLine={true}
@@ -104,9 +105,10 @@ export default class AddNewMessages extends Component {
               floatingLabelStyle={styles.textColor}
               underlineStyle={styles.underlineStyle}
               ref="newMessageTitle"
-            /><br/>
+              /><br/>
             <TextField
               type="text"
+              fullWidth={true}
               id="newMessageBody"
               floatingLabelText="Content"
               multiLine={true}

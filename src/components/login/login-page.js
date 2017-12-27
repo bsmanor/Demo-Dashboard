@@ -13,7 +13,9 @@ class LoginPage extends Component {
   constructor() {
     super();
     this.state = {
-      open: true
+      open: true,
+      emailErrorText: null,
+      passwordErrorText: null
     }
 
 
@@ -43,6 +45,15 @@ class LoginPage extends Component {
     // get email and password from login form
     let email = this.refs.email.input.value;
     let password = this.refs.password.input.value;
+    if(email.length == 0 || password.length == 0) {
+      if(email.length == 0) {
+        this.setState({emailErrorText: 'Enter email address'})
+      };
+      if(password.length == 0) {
+        this.setState({passwordErrorText: 'Enter password'})
+      }
+      return;
+    }
     // set Firebase and sign user in
     const auth = firebase.auth();
     const promise = auth.signInWithEmailAndPassword(email, password);
@@ -96,7 +107,7 @@ class LoginPage extends Component {
         height: 3
       },
       creds: {
-        color: '#BDBDBD'
+        color: '#37BBD4'
         
       }
     }
@@ -115,13 +126,28 @@ class LoginPage extends Component {
           />
           <Divider style={styles.devider}/>
           <CardText>
-            <TextField fullWidth={true} type="email" ref="email" hintText="Email" floatingLabelText="Email" onKeyPress={this.onEnterKeyPress} /><br />
-            <TextField fullWidth={true} type="password" ref="password" hintText="Password" floatingLabelText="Password" onKeyPress={this.onEnterKeyPress} />
+            <TextField
+              errorText={this.state.emailErrorText} 
+              fullWidth={true} 
+              type="email" ref="email" 
+              hintText="Email" 
+              floatingLabelText="Email" 
+              onKeyPress={this.onEnterKeyPress} /><br 
+            />
+            <TextField 
+              fullWidth={true} 
+              errorText={this.state.passwordErrorText}
+              type="password" 
+              ref="password" 
+              hintText="Password" 
+              floatingLabelText="Password" 
+              onKeyPress={this.onEnterKeyPress} 
+            />
             <Divider style={styles.devider}/>
             <span style={styles.creds}><br />
               Demo Creds:<br />
               <code>
-                Username: bsmanor@gmail.com<br />
+                Email: bsmanor@gmail.com<br />
                 Password: 123456
               </code>
             </span>
@@ -132,22 +158,6 @@ class LoginPage extends Component {
           </CardActions>
 
         </Card>
-
-
-        {/* <Dialog
-          title="Log in to Demo Dashboard"
-          actions={actions}
-          modal={true}
-          open={this.state.open}
-          titleStyle={styles.dialogTitleStyle}
-          style={styles.dialogStyle}
-          onKeyPress={this.onEnterKeyPress}
-        >
-
-          <TextField type="email" ref="email" hintText="Email" floatingLabelText="Email" onKeyPress={this.onEnterKeyPress} /><br />
-          <TextField type="password" ref="password" hintText="Password" floatingLabelText="Password" onKeyPress={this.onEnterKeyPress} />
-
-        </Dialog> */}
       </div>
     );
   }

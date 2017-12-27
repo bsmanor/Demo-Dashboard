@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router-dom';
 import AddNewMessages from '../../../../adminPanel/messages/messages';
 // import Firebase
 import * as firebase from 'firebase';
@@ -212,9 +213,10 @@ class Messages extends Component {
           {this.props.mq ? <CardHeader className="cardHeader" titleStyle={this.props.styles.cardHeaderTitle} title="MESSAGES" style={styles.cardHeader} /> : null}
           <CardText>
             <List style={styles.messagesList}>{messages}</List>
-            <FloatingActionButton style={styles.addButton} mini={true}>
-              <ContentAdd onClick={this.handleAddDialogOpen}/>
-            </FloatingActionButton>
+            <Link to={'/admin/messages'}><FloatingActionButton style={styles.addButton} mini={true}>
+              <ContentAdd />
+              {/* <ContentAdd onClick={this.handleAddDialogOpen}/> */}
+            </FloatingActionButton></Link>
           </CardText>
         </Card>
 
@@ -227,7 +229,6 @@ class Messages extends Component {
           actions={[
             <RaisedButton primary={true} style={styles.buttonMargin} onClick={this.handleAddDialogClose} label="CANCEL" />,
           ]}
-          modal={true}
           open={this.state.addMessageDialogState}
           onRequestClose={this.handleAddDialogOpen}
         >
@@ -238,7 +239,6 @@ class Messages extends Component {
         <Dialog
           title="Are you sure?"
           actions={deleteMessageDialogButtons}
-          modal={true}
           open={this.state.deleteMessageDialogState}
           onRequestClose={this.handleDeleteDialogOpen}
         >

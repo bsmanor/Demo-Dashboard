@@ -7,6 +7,8 @@ import { Link } from 'react-router-dom';
 import moment from 'moment';
 // importing react-live-clock. For documentation: https://www.npmjs.com/package/react-live-clock
 import Clock from 'react-live-clock';
+// importing Font Awesome
+import 'font-awesome/css/font-awesome.min.css';
 // importing material-ui components
 import AppBar from 'material-ui/AppBar';
 import Avatar from 'material-ui/Avatar';
@@ -63,16 +65,16 @@ class NavBar extends Component {
         color: this.props.styles.success
       },
       logo: {
-        fontSize: '1.5em',
-        color: this.props.styles.success,
         position: 'relative',
-        top: 8,
-        marginRight: 20
+        top: 7,
+        marginRight: 15
       },
       titleText: {},
       userAvatar: {
-        height: 25,
-        width: 25
+        position: 'relative',
+        top: 3,
+        height: 30,
+        width: 30
       },
       userIconMenu: {
         textAlign: 'center'
@@ -81,6 +83,12 @@ class NavBar extends Component {
         height: 60,
         width: 60,
         margin: 'auto'
+      },
+      githubIcon: {
+        margin: '0px 20px 0px 10px'
+      },
+      githubLink: {
+        color: 'inherit'
       }
     }
     
@@ -118,7 +126,7 @@ class NavBar extends Component {
         <AppBar
           titleStyle={styles.titleStyle}
           title={<Link to={'/'} className="link" style={styles.titleStyle}>
-                    <FontIcon style={styles.logo} className="material-icons">trending_up</FontIcon>
+                    <i className={this.props.mq ? "fa fa-tachometer fa-2x" : "fa fa-tachometer"}  aria-hidden="true" style={this.props.mq ? styles.logo : null}></i>
                     {this.props.mq ? <span style={styles.titleText}>Demo Dashboard</span> : null}
                   </Link>
                 }
@@ -128,9 +136,10 @@ class NavBar extends Component {
             <div>
               {/* <Clock format={'HH:mm:ss'} ticking={true} /> */}
               {/* <Link to={'/home'} className="link"><IconButton iconClassName="material-icons" tooltip="Home">home</IconButton></Link> */}
-              <Link to={'/about'} className="link"><IconButton iconClassName="material-icons" tooltip="Global Dashboard">assistant_photo</IconButton></Link>
-              <Link to={'/'} className="link"><IconButton iconClassName="material-icons" tooltip="About this project">desktop_mac</IconButton></Link>
-              <Link to={'/admin'} className="link"><IconButton iconClassName="material-icons" tooltip="Settings" >settings</IconButton></Link>
+              <Link to={'/about'} className="link"><IconButton iconClassName="material-icons" tooltip="About this project" touch={true}>assistant_photo</IconButton></Link>
+              <Link to={'/'} className="link"><IconButton iconClassName="material-icons" tooltip="Home" touch={true}>home</IconButton></Link>
+              <Link to={'/admin'} className="link"><IconButton iconClassName="material-icons" tooltip="Settings" touch={true}>settings</IconButton></Link>
+              <a href="https://github.com/bsmanor/Demo-Dashboard" target="_blank" className="link" style={styles.githubLink}><i style={styles.githubIcon} className="fa fa-github fa-2x" aria-hidden="true"></i></a>
               <IconMenu
                 anchorOrigin={{vertical: 'bottom', horizontal: 'left'}}
                 touchTapCloseDelay={100}
